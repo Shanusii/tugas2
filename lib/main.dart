@@ -55,23 +55,9 @@ class WireframeScreen extends StatelessWidget {
               // Row 1: Two large rectangular placeholders
               Row(
                 children: [
-                  Expanded(
-                    child: Center(
-                      child: SizedBox(
-                        height: 200,
-                        child: _buildLargePlaceholder(),
-                      ),
-                    ),
-                  ),
+                  Expanded(child: _buildLargePlaceholder()),
                   const SizedBox(width: 20),
-                  Expanded(
-                    child: Center(
-                      child: SizedBox(
-                        height: 200,
-                        child: _buildLargePlaceholder(),
-                      ),
-                    ),
-                  ),
+                  Expanded(child: _buildLargePlaceholder()),
                 ],
               ),
               const SizedBox(height: 22),
@@ -143,12 +129,13 @@ class WireframeScreen extends StatelessWidget {
   Widget _buildFeatureItem() {
     return Column(
       children: [
-        Container(
-          width: 50,
-          height: 50,
-          decoration: BoxDecoration(
-            color: const Color(0xFFE69138), // Orange from wireframe
-            borderRadius: BorderRadius.circular(8),
+        AspectRatio(
+          aspectRatio: 1,
+          child: Container(
+            decoration: BoxDecoration(
+              color: const Color(0xFFE69138), // Orange from wireframe
+              borderRadius: BorderRadius.circular(8),
+            ),
           ),
         ),
         const SizedBox(height: 8),
